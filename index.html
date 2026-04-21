@@ -12,82 +12,186 @@
 </head>
 <body>
 
-  <!-- INTRO SCREEN -->
+  <!-- ============================================================
+       PAGE 1 — INTRO SCREEN
+  ============================================================ -->
   <div id="intro-screen">
     <div class="intro-noise"></div>
     <div class="intro-scanlines"></div>
-
     <div class="intro-bg-grid"></div>
 
-    <div class="intro-content">
-      <div class="intro-badge">LIVE EVENT · EXCLUSIVE ACCESS</div>
-
-      <h1 class="intro-title">
-        <span class="title-line line-1">FEEL</span>
-        <span class="title-line line-2">THE</span>
-        <span class="title-line line-3">NIGHT</span>
-      </h1>
-
-      <p class="intro-sub">You're inside. This moment is yours.</p>
-
-      <button id="enter-btn" onclick="enterExperience()">
-        <span class="btn-text">TAP TO ENTER</span>
-        <span class="btn-ripple"></span>
-      </button>
-
-      <p class="intro-hint">🎵 Sound on for the full experience</p>
+    <!-- Company Logo Slot — top left -->
+    <div class="company-logo-slot">
+      <img src="images/company-logo.png" alt="Company Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="logo-placeholder" style="display:none;">YOUR LOGO</div>
     </div>
 
+    <!-- Scrollable inner content -->
+    <div class="intro-scroll">
+
+      <div class="intro-content">
+        <div class="intro-badge">LIVE EVENT · EXCLUSIVE ACCESS</div>
+
+        <h1 class="intro-title">
+          <span class="title-line line-1">FEEL</span>
+          <span class="title-line line-2">THE</span>
+          <span class="title-line line-3">NIGHT</span>
+        </h1>
+
+        <p class="intro-sub">You're inside. This moment is yours.</p>
+
+        <!-- Pulsing Enter Button -->
+        <div class="enter-btn-wrap">
+          <button id="enter-btn" onclick="enterExperience()">
+            <span class="btn-text">TAP TO ENTER</span>
+          </button>
+          <span class="pulse-ring r1"></span>
+          <span class="pulse-ring r2"></span>
+          <span class="pulse-ring r3"></span>
+        </div>
+
+        <p class="intro-hint">🎵 Sound on for the full experience</p>
+
+        <!-- 8 Navigation Link Buttons -->
+        <nav class="nav-links">
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🎟</span>Get Tickets</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📸</span>Gallery</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🎵</span>Music</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📅</span>Schedule</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🛍</span>Merch</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📍</span>Venue Map</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📲</span>Follow Us</a>
+          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">✉️</span>Contact</a>
+        </nav>
+      </div>
+
+      <!-- Sponsors Section -->
+      <div class="sponsors-section">
+        <p class="sponsors-label">PROUDLY SUPPORTED BY</p>
+        <div class="sponsors-track-wrapper">
+          <div class="sponsors-track">
+            <!-- Real images: replace src with your sponsor logo files -->
+            <div class="sponsor-item">
+              <img src="images/sponsor1.png" alt="Sponsor 1"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 1</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor2.png" alt="Sponsor 2"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 2</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor3.png" alt="Sponsor 3"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 3</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor4.png" alt="Sponsor 4"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 4</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor5.png" alt="Sponsor 5"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="sponsor-item">
+              <img src="images/sponsor1.png" alt="Sponsor 1"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 1</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor2.png" alt="Sponsor 2"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 2</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor3.png" alt="Sponsor 3"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 3</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor4.png" alt="Sponsor 4"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 4</div>
+            </div>
+            <div class="sponsor-item">
+              <img src="images/sponsor5.png" alt="Sponsor 5"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end .intro-scroll -->
+
+    <!-- Bottom Ticker -->
     <div class="intro-ticker">
       <div class="ticker-track">
-        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
-        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
+        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
+        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
       </div>
     </div>
   </div>
 
-  <!-- EXPERIENCE SCREEN -->
+
+  <!-- ============================================================
+       PAGE 2 — EXPERIENCE SCREEN
+  ============================================================ -->
   <div id="experience-screen">
     <div class="exp-noise"></div>
 
-    <!-- Slideshow -->
-    <div id="slideshow">
-      <!-- Images are injected by JS -->
-    </div>
-
-    <!-- Vignette overlay -->
-    <div class="vignette"></div>
-
     <!-- Top HUD -->
     <div class="hud-top">
-      <div class="hud-left">
+      <button class="hud-back" id="hud-back-btn" onclick="closeGallery()">← BACK</button>
+      <div class="hud-center" id="hud-title">FEEL THE NIGHT</div>
+      <div class="hud-live">
         <div class="hud-dot"></div>
         <span class="hud-label">LIVE</span>
       </div>
-      <div class="hud-center">
-        <span class="hud-event-name">FEEL THE NIGHT</span>
-      </div>
-      <div class="hud-right">
-        <span id="hud-counter" class="hud-label">01 / 10</span>
+    </div>
+
+    <!-- MAIN PERSON GRID -->
+    <div id="main-grid-view" class="grid-scroll-area">
+      <p class="grid-instruction">TAP A CARD TO VIEW GALLERY</p>
+      <div id="person-grid" class="person-grid">
+        <!-- Injected by JS -->
       </div>
     </div>
 
-    <!-- Bottom info bar -->
-    <div class="info-bar">
-      <div class="info-artist">
-        <span class="info-playing">♪ NOW PLAYING</span>
-        <span class="info-song" id="song-name">concert-song.mp3</span>
+    <!-- INDIVIDUAL GALLERY VIEW -->
+    <div id="gallery-view" class="grid-scroll-area" style="display:none; opacity:0;">
+      <h2 id="gallery-person-name" class="gallery-name-header"></h2>
+      <div id="individual-grid" class="individual-grid">
+        <!-- Injected by JS -->
       </div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-inner" onclick="event.stopPropagation()">
+        <img id="lightbox-img" src="" alt="" />
+        <button class="lightbox-close" onclick="closeLightbox()">✕</button>
       </div>
-      <div class="slideshow-dots" id="dots-container"></div>
     </div>
 
     <!-- Hidden Audio -->
     <audio id="audio-player" loop>
       <source src="audio/concert-song.mp3" type="audio/mpeg" />
     </audio>
+
+    <!-- Bottom Audio Bar -->
+    <div class="audio-bar">
+      <span class="audio-icon">♪</span>
+      <span id="song-name" class="audio-song-name">CONCERT SONG</span>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

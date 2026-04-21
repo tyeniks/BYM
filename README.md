@@ -1,104 +1,77 @@
-# 🎵 CONCERT EXPERIENCE — Setup & Deployment Guide
+# 🎵 CONCERT EXPERIENCE v2 — Setup Guide
 
 ## Folder Structure
 
 ```
 concert-experience/
-├── index.html         ← Main page (don't rename)
-├── style.css          ← Styles
-├── script.js          ← Logic + CONFIG
+├── index.html
+├── style.css
+├── script.js
 ├── audio/
-│   └── concert-song.mp3   ← Your music file
+│   └── concert-song.mp3
 └── images/
-    ├── photo1.jpg
-    ├── photo2.jpg
-    └── ... (up to 40 photos)
+    ├── company-logo.png       ← Your company logo (top left of intro page)
+    ├── sponsor1.png           ← Sponsor logos (white/transparent background recommended)
+    ├── sponsor2.png
+    ├── sponsor3.png
+    ├── sponsor4.png
+    ├── sponsor5.png
+    ├── person1/
+    │   ├── cover.jpg          ← Thumbnail shown on main grid
+    │   ├── photo1.jpg
+    │   └── photo2.jpg
+    ├── person2/
+    │   ├── cover.jpg
+    │   └── photo1.jpg
+    └── ...
 ```
 
 ---
 
-## Step 1 — Add Your Content
+## Step 1 — Company Logo
+- Save as `images/company-logo.png`
+- Use a white or transparent-background version
+- It will appear top-left on the intro screen
 
-### Music
-- Encode your song as MP3, 128kbps, max 5MB
-- Save it as `audio/concert-song.mp3`
+## Step 2 — Sponsor Logos
+- Save as `images/sponsor1.png` through `sponsor5.png`
+- White or transparent background works best
+- They scroll automatically in a loop
 
-### Photos
-- Resize to max 1200px wide
-- Save as JPG or WebP, 100–200KB each
-- Name them: `photo1.jpg`, `photo2.jpg`, etc.
-- Place in the `images/` folder
+## Step 3 — Nav Buttons
+- Open `index.html` and find the `.nav-links` section
+- Replace the `href="#"` placeholders with your real URLs
 
----
-
-## Step 2 — Update script.js CONFIG
-
-Open `script.js` and edit the top CONFIG block:
+## Step 4 — Person Galleries
+- Create one subfolder per person inside `/images/`
+- Add a `cover.jpg` (grid thumbnail) and all their photos
+- Edit the `CONFIG.persons` array in `script.js`:
 
 ```js
-const CONFIG = {
-  songName: "Your Artist – Song Name",   // Shown in the UI
-  audioSrc: "audio/concert-song.mp3",
-
-  images: [
-    "images/photo1.jpg",
-    "images/photo2.jpg",
-    // list ALL your image filenames here
-  ],
-
-  slideDuration: 4000,  // milliseconds per slide (4000 = 4 seconds)
-};
+persons: [
+  {
+    name: "AMARA",
+    cover: "images/amara/cover.jpg",
+    photos: [
+      "images/amara/photo1.jpg",
+      "images/amara/photo2.jpg",
+    ]
+  },
+  // ... add one block per person
+]
 ```
 
----
+## Step 5 — Music
+- Save as `audio/concert-song.mp3` (MP3, 128kbps, max 5MB)
+- Update `CONFIG.songName` in `script.js`
 
-## Step 3 — Deploy to Vercel (Free)
+## Step 6 — Deploy to Vercel (Free)
+1. Push all files to a GitHub repository
+2. Go to vercel.com → New Project → Import repo
+3. Click Deploy → get your live URL
 
-1. Create a free account at [vercel.com](https://vercel.com)
-2. Create a new GitHub repository
-3. Upload all project files (maintaining folder structure)
-4. Go to Vercel → New Project → Import your GitHub repo
-5. Click Deploy — done!
-6. Your live URL will look like: `https://your-project.vercel.app`
-
----
-
-## Step 4 — Generate QR Code
-
-1. Go to [qrcode-monkey.com](https://qrcode-monkey.com)
+## Step 7 — QR Code
+1. Go to qrcode-monkey.com
 2. Paste your Vercel URL
-3. Set error correction: **High**
-4. Download as **SVG** (best for printing)
-
----
-
-## Step 5 — Print on T-Shirts
-
-- Minimum QR code size: **3–4 cm**
-- Print on flat area of shirt (avoid seams/curves)
-- Test scan before mass production!
-
----
-
-## Customization Tips
-
-### Change Event Title
-In `index.html`, find and update:
-- `FEEL THE NIGHT` → your event name (3 short words work best)
-- `LIVE TONIGHT` in the ticker → your event tagline
-- `FEEL THE NIGHT` in the HUD center → your event name
-
-### Change Slide Duration
-In `script.js` CONFIG: `slideDuration: 4000` (milliseconds)
-
-### Change Slide Transition Speed
-In `style.css`, find `.slide` and adjust `transition: opacity 1s`
-
----
-
-## Performance Tips
-
-- Keep total image folder under 8MB
-- Use WebP format when possible (30% smaller than JPG)
-- Test on real phones before the event!
-- Vercel CDN handles thousands of simultaneous scans 🚀
+3. Download as SVG
+4. Print on shirts (min 3–4cm size, flat surface)
