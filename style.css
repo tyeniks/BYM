@@ -1,0 +1,545 @@
+/* ==========================================
+   CONCERT EXPERIENCE — style.css
+   Aesthetic: Raw concert energy meets
+   editorial brutalism. Dark, loud, electric.
+   ========================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --black: #080808;
+  --white: #f5f0e8;
+  --red: #ff2442;
+  --amber: #ffb627;
+  --dim: rgba(8, 8, 8, 0.7);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--black);
+  color: var(--white);
+}
+
+/* ==========================================
+   SCREEN MANAGEMENT
+   ========================================== */
+
+#intro-screen,
+#experience-screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#experience-screen {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#experience-screen.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ==========================================
+   NOISE TEXTURE OVERLAY
+   ========================================== */
+
+.intro-noise,
+.exp-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  animation: noiseShift 0.15s steps(1) infinite;
+}
+
+@keyframes noiseShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-3px, 2px); }
+  50%  { transform: translate(2px, -3px); }
+  75%  { transform: translate(-2px, -1px); }
+  100% { transform: translate(3px, 1px); }
+}
+
+/* ==========================================
+   SCANLINES
+   ========================================== */
+
+.intro-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+}
+
+/* ==========================================
+   INTRO SCREEN
+   ========================================== */
+
+#intro-screen {
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.76,0,0.24,1);
+}
+
+#intro-screen.exit {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+/* Grid background */
+.intro-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,36,66,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,36,66,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Radial glow at center */
+.intro-bg-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%,
+    rgba(255,36,66,0.15) 0%,
+    transparent 70%
+  );
+  animation: glowBreath 3s ease-in-out infinite;
+}
+
+@keyframes glowBreath {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ---- Intro Content ---- */
+
+.intro-content {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  text-align: center;
+  max-width: 420px;
+}
+
+.intro-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 4px 12px;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.intro-title {
+  line-height: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(90px, 26vw, 160px);
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.line-1 { animation: titleSlam 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both; }
+.line-2 {
+  animation: titleSlam 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+  color: var(--red);
+  -webkit-text-stroke: 2px var(--red);
+  color: transparent;
+}
+.line-3 { animation: titleSlam 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
+
+@keyframes titleSlam {
+  from { opacity: 0; transform: translateY(40px) scaleY(1.3); }
+  to   { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+.intro-sub {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: rgba(245,240,232,0.5);
+  font-style: italic;
+  animation: fadeUp 0.6s ease 0.8s both;
+}
+
+/* ---- Enter Button ---- */
+
+#enter-btn {
+  position: relative;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  color: var(--black);
+  background: var(--white);
+  border: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease 1s both;
+  transition: background 0.2s, transform 0.1s;
+  -webkit-appearance: none;
+}
+
+#enter-btn:active {
+  transform: scale(0.97);
+  background: var(--amber);
+}
+
+#enter-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--red);
+  transform: translateX(-105%);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 0;
+}
+
+#enter-btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--white);
+}
+
+/* ---- Hint ---- */
+
+.intro-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(245,240,232,0.35);
+  animation: fadeUp 0.6s ease 1.2s both;
+}
+
+/* ---- Ticker ---- */
+
+.intro-ticker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--red);
+  padding: 8px 0;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 18s linear infinite;
+}
+
+.ticker-track span {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ==========================================
+   EXPERIENCE SCREEN
+   ========================================== */
+
+#experience-screen {
+  background: var(--black);
+}
+
+/* ---- Slideshow ---- */
+
+#slideshow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  transform: scale(1.03);
+  transition: opacity 1s ease-in-out, transform 8s ease-out;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Fallback when no real images loaded */
+.slide-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.slide-placeholder-num {
+  font-family: var(--font-display);
+  font-size: clamp(100px, 35vw, 240px);
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+}
+
+.slide-placeholder-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+
+/* ---- Vignette ---- */
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 50%, transparent 40%, rgba(8,8,8,0.7) 100%),
+    linear-gradient(to bottom, rgba(8,8,8,0.6) 0%, transparent 25%, transparent 60%, rgba(8,8,8,0.9) 100%);
+}
+
+/* ---- HUD Top ---- */
+
+.hud-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.hud-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--white);
+}
+
+.hud-center {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  color: var(--white);
+}
+
+.hud-right {
+  opacity: 0.6;
+}
+
+/* ---- Info Bar ---- */
+
+.info-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 16px 20px;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-artist {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-playing {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  opacity: 0.8;
+}
+
+.info-song {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Progress Bar ---- */
+
+.progress-container {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--amber);
+  width: 0%;
+  transition: width 0.5s linear;
+  box-shadow: 0 0 8px var(--amber);
+}
+
+/* ---- Slideshow Dots ---- */
+
+.slideshow-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.3s, transform 0.3s;
+  flex-shrink: 0;
+}
+
+.dot.active {
+  background: var(--white);
+  transform: scale(1.4);
+}
+
+.dot.visited {
+  background: rgba(255,182,39,0.5);
+}
+
+/* ==========================================
+   SHARED ANIMATIONS
+   ========================================== */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   LOADING STATE
+   ========================================== */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.loading-overlay.gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  font-family: var(--font-display);
+  font-size: 40px;
+  letter-spacing: 0.3em;
+  color: var(--red);
+  animation: loadPulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes loadPulse {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}

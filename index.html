@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>LIVE TONIGHT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- INTRO SCREEN -->
+  <div id="intro-screen">
+    <div class="intro-noise"></div>
+    <div class="intro-scanlines"></div>
+
+    <div class="intro-bg-grid"></div>
+
+    <div class="intro-content">
+      <div class="intro-badge">LIVE EVENT · EXCLUSIVE ACCESS</div>
+
+      <h1 class="intro-title">
+        <span class="title-line line-1">FEEL</span>
+        <span class="title-line line-2">THE</span>
+        <span class="title-line line-3">NIGHT</span>
+      </h1>
+
+      <p class="intro-sub">You're inside. This moment is yours.</p>
+
+      <button id="enter-btn" onclick="enterExperience()">
+        <span class="btn-text">TAP TO ENTER</span>
+        <span class="btn-ripple"></span>
+      </button>
+
+      <p class="intro-hint">🎵 Sound on for the full experience</p>
+    </div>
+
+    <div class="intro-ticker">
+      <div class="ticker-track">
+        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
+        <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE SCREEN -->
+  <div id="experience-screen">
+    <div class="exp-noise"></div>
+
+    <!-- Slideshow -->
+    <div id="slideshow">
+      <!-- Images are injected by JS -->
+    </div>
+
+    <!-- Vignette overlay -->
+    <div class="vignette"></div>
+
+    <!-- Top HUD -->
+    <div class="hud-top">
+      <div class="hud-left">
+        <div class="hud-dot"></div>
+        <span class="hud-label">LIVE</span>
+      </div>
+      <div class="hud-center">
+        <span class="hud-event-name">FEEL THE NIGHT</span>
+      </div>
+      <div class="hud-right">
+        <span id="hud-counter" class="hud-label">01 / 10</span>
+      </div>
+    </div>
+
+    <!-- Bottom info bar -->
+    <div class="info-bar">
+      <div class="info-artist">
+        <span class="info-playing">♪ NOW PLAYING</span>
+        <span class="info-song" id="song-name">concert-song.mp3</span>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="slideshow-dots" id="dots-container"></div>
+    </div>
+
+    <!-- Hidden Audio -->
+    <audio id="audio-player" loop>
+      <source src="audio/concert-song.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
