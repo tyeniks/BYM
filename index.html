@@ -6,8 +6,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>LIVE TONIGHT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -34,13 +36,36 @@
               values inside .company-logo-slot in style.css.
               Default is width:110px height:55px.
     ───────────────────────────────────────────────────────────── -->
-    <div class="company-logo-slot">
-      <img
-        src="images/vms_logo.png"
-        alt="Company Logo"
-        class="company-logo-img"
-      />
+  <div class="company-logo-slot">
+  <div class="logo-wrapper" id="logoWrapper">
+
+    <img
+      src="images/vms_logo.png"
+      alt="Company Logo"
+      class="company-logo-img"
+      id="mainLogo"
+    />
+
+    <div class="social-links" id="socialLinks">
+      <a href="https://instagram.com/yourpage" target="_blank" class="social-icon">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://facebook.com/yourpage" target="_blank" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="https://twitter.com/yourpage" target="_blank" class="social-icon">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+
+      <a href="https://tiktok.com/@yourpage" target="_blank" class="social-icon">
+        <i class="fab fa-tiktok"></i>
+      </a>
     </div>
+
+  </div>
+</div>
 
     <!-- Scrollable inner content -->
     <div class="intro-scroll">
@@ -70,14 +95,13 @@
 
         <!-- 8 Navigation Link Buttons -->
         <nav class="nav-links">
-          <a href="#" class="nav-btn"><span class="nav-icon">🎟</span>Get Tickets</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">📸</span>Gallery</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">🎵</span>Music</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">📅</span>Schedule</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">🛍</span>Merch</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">📍</span>Venue Map</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">📲</span>Follow Us</a>
-          <a href="#" class="nav-btn"><span class="nav-icon">✉️</span>Contact</a>
+          <a href="#" class="nav-btn"><i class="fa-brands fa-spotify nav-icon spotify"></i>Spotify</a>
+          <a href="https://vm.tiktok.com/ZS9NLWvRKBmcN-yl4ym/" class="nav-btn"><i class="fa-brands fa-tiktok nav-icon tiktok"></i>Tik Tok</a>
+          <a href="https://www.instagram.com/laphashstuna?igsh=NmZzZ3dpazFvMnph" class="nav-btn"><i class="fa-brands fa-instagram nav-icon instagram"></i>Instagram</a>
+          <a href="https://x.com/laphashB" class="nav-btn"><i class="fa-brands fa-square-x-twitter nav-icon twitter"></i>Twitter</a>
+          <a href="https://www.facebook.com/profile.php?id=100066451850103" class="nav-btn"><i class="fa-brands fa-facebook nav-icon facebook"></i>Facebook</a>
+          <a href="www.fotsobrany@gmail.com" class="nav-btn"><i class="fa-brands fa-google nav-icon google"></i>Gmail</a>
+          <a href="https://wa.link/tsxq5d" class="nav-btn"><i class="fa-brands fa-whatsapp nav-icon whatsapp"></i>Whatsapp</a>
         </nav>
       </div>
 

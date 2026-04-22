@@ -149,24 +149,62 @@ html, body {
   z-index: 30;
   animation: fadeUp 0.5s ease 0.1s both;
 
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 110px;
+  height: 55px;
+}
 
-  /* ── LOGO SIZE — change these two values ── */
-  width:  110px;   /* ← increase for wider logo  */
-  height:  55px;   /* ← increase for taller logo */
+.logo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .company-logo-img {
-  max-width:  100%;
+  max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
-  /* NO filter — shows logo in true colour */
+  cursor: pointer;
+}
+
+/* Social icons container */
+.social-links {
+  position: absolute;
+  bottom: -60px;   /* Positioned below logo */
+  left: 0;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+}
+
+/* Visible state */
+.social-links.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Individual icons */
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 15px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  background: #e90275; /* You can change brand color */
 }
 
 /* ==========================================
@@ -341,9 +379,16 @@ html, body {
   border-color: var(--red);
   transform: scale(0.97);
 }
+.spotify{
+  color: green;
+}
+
+.instagram{
+  color:  red/orange;
+}
 
 .nav-icon {
-  font-size: 15px;
+  font-size: 35px;
   line-height: 1;
   flex-shrink: 0;
 }

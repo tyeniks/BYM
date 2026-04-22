@@ -296,3 +296,53 @@ audioPlayer.addEventListener('timeupdate', () => {
   const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
   progressBar.style.width = pct + '%';
 });
+
+
+// ============================================================
+// AUTO POP-UP SOCIAL ICONS (5s ON / 5s OFF LOOP)
+// ============================================================
+
+const logoWrapper = document.getElementById("logoWrapper");
+const mainLogo = document.getElementById("mainLogo");
+const socialLinks = document.getElementById("socialLinks");
+
+if (logoWrapper && mainLogo && socialLinks) {
+
+  let showDuration = 3000;   // visible for 3 seconds
+  let hideDuration = 1000;   // hidden for 1 seconds
+  let isVisible = false;
+
+  function showIcons() {
+    socialLinks.classList.add("active");
+    isVisible = true;
+
+    setTimeout(() => {
+      hideIcons();
+    }, showDuration);
+  }
+
+  function hideIcons() {
+    socialLinks.classList.remove("active");
+    isVisible = false;
+
+    setTimeout(() => {
+      showIcons();
+    }, hideDuration);
+  }
+
+  // Start automatic cycle
+  setTimeout(() => {
+    showIcons();
+  }, hideDuration);
+
+  // Allow manual open when logo is clicked
+  mainLogo.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    if (!isVisible) {
+      socialLinks.classList.add("active");
+      isVisible = true;
+    }
+  });
+
+}
