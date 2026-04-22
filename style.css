@@ -149,10 +149,9 @@ html, body {
   z-index: 30;
   animation: fadeUp 0.5s ease 0.1s both;
 
-  /* White card so any colour logo is visible */
-  background: #ffffff;
-  border-radius: 6px;
-  padding: 6px 10px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,13 +409,12 @@ html, body {
   flex-shrink: 0;
   width:  130px;   /* ← change this to make logos wider  */
   height:  65px;   /* ← change this to make logos taller */
-  background: #ffffff;         /* white background — logo always visible */
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  padding: 0;
   transition: transform 0.3s ease;
 }
 
