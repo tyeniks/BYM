@@ -39,22 +39,22 @@ const CONFIG = {
   */
   persons: [
     {
-      name: "PERSON 1",
-      cover: "images/person1/cover.jpg",
+      name: "LAPHASH",
+      cover: "images/laphash/6.jpg",
       photos: [
-        "images/person1/photo1.jpg",
-        "images/person1/photo2.jpg",
-        "images/person1/photo3.jpg",
-        "images/person1/photo4.jpg",
+        "images/laphash/1.jpg",
+        "images/laphash/2.jpg",
+        "images/laphash/3.jpg",
+        "images/laphash/4.jpg",
       ]
     },
     {
-      name: "PERSON 2",
-      cover: "images/person2/cover.jpg",
+      name: "MORALES",
+      cover: "images/morales/1.jpg",
       photos: [
-        "images/person2/photo1.jpg",
-        "images/person2/photo2.jpg",
-        "images/person2/photo3.jpg",
+        "images/morales/1.jpg",
+        "images/morales/2.jpg",
+        "images/morales/4.jpg",
       ]
     },
     {
