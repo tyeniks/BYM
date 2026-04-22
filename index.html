@@ -20,11 +20,26 @@
     <div class="intro-scanlines"></div>
     <div class="intro-bg-grid"></div>
 
-    <!-- Company Logo Slot — top left -->
+    <!-- ─────────────────────────────────────────────────────────
+         COMPANY LOGO — top left corner
+         HOW TO USE:
+           1. Put your logo file inside the /images/ folder.
+           2. It can be .jpg  .jpeg  or  .png — any of these work.
+           3. Change the src below to match your filename exactly.
+              Examples:
+                src="images/mylogo.png"
+                src="images/company-logo.jpg"
+                src="images/logo.jpeg"
+           4. To make the logo bigger: increase the width/height
+              values inside .company-logo-slot in style.css.
+              Default is width:110px height:55px.
+    ───────────────────────────────────────────────────────────── -->
     <div class="company-logo-slot">
-      <img src="images/company-logo.png" alt="Company Logo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-      <div class="logo-placeholder" style="display:none;">YOUR LOGO</div>
+      <img
+        src="images/company-logo.png"
+        alt="Company Logo"
+        class="company-logo-img"
+      />
     </div>
 
     <!-- Scrollable inner content -->
@@ -55,117 +70,80 @@
 
         <!-- 8 Navigation Link Buttons -->
         <nav class="nav-links">
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🎟</span>Get Tickets</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📸</span>Gallery</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🎵</span>Music</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📅</span>Schedule</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">🛍</span>Merch</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📍</span>Venue Map</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">📲</span>Follow Us</a>
-          <a href="#" class="nav-btn" onclick="return false;"><span class="nav-icon">✉️</span>Contact</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">🎟</span>Get Tickets</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">📸</span>Gallery</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">🎵</span>Music</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">📅</span>Schedule</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">🛍</span>Merch</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">📍</span>Venue Map</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">📲</span>Follow Us</a>
+          <a href="#" class="nav-btn"><span class="nav-icon">✉️</span>Contact</a>
         </nav>
       </div>
 
-      <!-- Sponsors Section -->
+      <!-- ───────────────────────────────────────────────────────
+           SPONSORS SECTION
+           HOW TO ADD YOUR SPONSOR LOGOS:
+             1. Drop your logo files into the /images/ folder.
+             2. They can be  .jpg  .jpeg  or  .png — all work.
+             3. Replace  src="images/sponsor1.png"  below with
+                the exact filename of each sponsor's logo.
+                Examples:
+                  src="images/cocacola.jpg"
+                  src="images/nike-logo.png"
+                  src="images/partner.jpeg"
+             4. To add MORE sponsors: copy one entire
+                <div class="sponsor-card"> block and paste it
+                twice (once in each half of the track) with
+                the new filename.
+             5. To make logos BIGGER: go to style.css and find
+                .sponsor-card — increase the width and height
+                values there. Default is 130px × 65px.
+             6. The logos scroll automatically on a white card
+                background so any colour logo is always visible.
+      ─────────────────────────────────────────────────────────── -->
       <div class="sponsors-section">
         <p class="sponsors-label">PROUDLY SUPPORTED BY</p>
         <div class="sponsors-track-wrapper">
-          <div class="sponsors-track">
-            <!-- Real images: replace src with your sponsor logo files -->
-            <div class="sponsor-item">
-              <img src="images/bym logo.jpeg" alt="Sponsor 1"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 1</div>
+          <div class="sponsors-track" id="sponsors-track">
+
+            <!-- ── FIRST SET (original) ── -->
+            <div class="sponsor-card">
+              <img src="images/sponsor1.png" alt="Sponsor 1" />
             </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/diensah logo.PNG" alt="Sponsor 2"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 2</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor2.png" alt="Sponsor 2" />
             </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/infite eight.JPG" alt="Sponsor 3"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 3</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor3.png" alt="Sponsor 3" />
             </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/rys engineering.jpeg" alt="Sponsor 4"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 4</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor4.png" alt="Sponsor 4" />
             </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/itel logo.jpg" alt="Sponsor 5"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor5.png" alt="Sponsor 5" />
             </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/jbf logo.jpeg" alt="Sponsor 6"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+
+            <!-- ── SECOND SET (duplicate for seamless loop) ── -->
+            <div class="sponsor-card">
+              <img src="images/sponsor1.png" alt="Sponsor 1" />
             </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/genius logo.jpg" alt="Sponsor 7"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor2.png" alt="Sponsor 2" />
             </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/mmi business.jpg" alt="Sponsor 8"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor3.png" alt="Sponsor 3" />
             </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/seven logo.jpg" alt="Sponsor 9"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor4.png" alt="Sponsor 4" />
             </div>
-            <!-- Duplicate for seamless loop -->
-          <div class="sponsor-item">
-              <img src="sponsor logos/bym logo.jpeg" alt="Sponsor 1"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 1</div>
+            <div class="sponsor-card">
+              <img src="images/sponsor5.png" alt="Sponsor 5" />
             </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/diensah logo.PNG" alt="Sponsor 2"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 2</div>
-            </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/infite eight.JPG" alt="Sponsor 3"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 3</div>
-            </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/rys engineering.jpeg" alt="Sponsor 4"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 4</div>
-            </div>
-            <div class="sponsor-item">
-              <img src="sponsor logos/itel logo.jpg" alt="Sponsor 5"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
-            </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/jbf logo.jpeg" alt="Sponsor 6"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
-            </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/genius logo.jpg" alt="Sponsor 7"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
-            </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/mmi business.jpg" alt="Sponsor 8"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
-            </div>
-              <div class="sponsor-item">
-              <img src="sponsor logos/seven logo.jpg" alt="Sponsor 9"
-                   onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="sponsor-fallback" style="display:none;">SPONSOR 5</div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+          </div><!-- end .sponsors-track -->
+        </div><!-- end .sponsors-track-wrapper -->
+      </div><!-- end .sponsors-section -->
 
     </div><!-- end .intro-scroll -->
 
@@ -176,11 +154,11 @@
         <span>LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp; LIVE TONIGHT &nbsp;·&nbsp;</span>
       </div>
     </div>
-  </div>
+  </div><!-- end #intro-screen -->
 
 
   <!-- ============================================================
-       PAGE 2 — EXPERIENCE SCREEN
+       PAGE 2 — EXPERIENCE SCREEN (gallery)
   ============================================================ -->
   <div id="experience-screen">
     <div class="exp-noise"></div>
@@ -198,17 +176,13 @@
     <!-- MAIN PERSON GRID -->
     <div id="main-grid-view" class="grid-scroll-area">
       <p class="grid-instruction">TAP A CARD TO VIEW GALLERY</p>
-      <div id="person-grid" class="person-grid">
-        <!-- Injected by JS -->
-      </div>
+      <div id="person-grid" class="person-grid"></div>
     </div>
 
     <!-- INDIVIDUAL GALLERY VIEW -->
     <div id="gallery-view" class="grid-scroll-area" style="display:none; opacity:0;">
       <h2 id="gallery-person-name" class="gallery-name-header"></h2>
-      <div id="individual-grid" class="individual-grid">
-        <!-- Injected by JS -->
-      </div>
+      <div id="individual-grid" class="individual-grid"></div>
     </div>
 
     <!-- Lightbox -->
@@ -219,7 +193,7 @@
       </div>
     </div>
 
-    <!-- Hidden Audio -->
+    <!-- Audio -->
     <audio id="audio-player" loop>
       <source src="audio/concert-song.mp3" type="audio/mpeg" />
     </audio>
@@ -232,7 +206,7 @@
         <div class="progress-bar" id="progress-bar"></div>
       </div>
     </div>
-  </div>
+  </div><!-- end #experience-screen -->
 
   <script src="script.js"></script>
 </body>
